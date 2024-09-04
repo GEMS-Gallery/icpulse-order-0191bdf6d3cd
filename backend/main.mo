@@ -30,7 +30,13 @@ actor {
   };
 
   stable var poolData: ?PoolData = null;
-  var orderbook: [OrderbookEntry] = [];
+  var orderbook: [OrderbookEntry] = [
+    { price = 8.5; amount = 100.0 },
+    { price = 8.6; amount = 200.0 },
+    { price = 8.7; amount = 150.0 },
+    { price = 8.8; amount = 300.0 },
+    { price = 8.9; amount = 250.0 }
+  ];
 
   public func fetchPoolData(): async Result.Result<PoolData, Text> {
     let mockPoolData : PoolData = {
