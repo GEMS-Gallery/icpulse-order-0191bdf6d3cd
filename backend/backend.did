@@ -1,0 +1,25 @@
+type Result = 
+ variant {
+   err: text;
+   ok: PoolData;
+ };
+type PoolData = 
+ record {
+   kLast: float64;
+   reserve0: float64;
+   reserve1: float64;
+   tokenA: text;
+   tokenB: text;
+   totalSupply: float64;
+ };
+type OrderbookEntry = 
+ record {
+   amount: float64;
+   price: float64;
+ };
+service : {
+  fetchPoolData: () -> (Result);
+  getCurrentPrice: () -> (opt float64) query;
+  getOrderbook: () -> (vec OrderbookEntry) query;
+  initialize: () -> ();
+}
